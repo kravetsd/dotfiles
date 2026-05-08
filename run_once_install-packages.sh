@@ -58,40 +58,14 @@ else
     echo "lazygit already installed: $(lazygit --version | head -1)"
 fi
 
-# --- Neovim (latest stable from GitHub releases; apt version is too old for LazyVim) ---
+# --- Neovim (unstable PPA — works on x86_64 and arm64, apt default is too old for LazyVim) ---
 if ! command -v nvim &>/dev/null; then
     echo "Installing Neovim..."
-    case "$(uname -m)" in
-        x86_64)        ARCH_PAT="nvim-(linux64|linux-x86_64)\.tar\.gz" ;;
-        aarch64|arm64) ARCH_PAT="nvim-linux-arm64\.tar\.gz" ;;
-        *)
-            echo "ERROR: Unsupported architecture: $(uname -m)" >&2
-            exit 1
-            ;;
-    esac
-    NVIM_TMP=$(mktemp -d)
-    NVIM_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest \
-        | grep '"browser_download_url"' \
-        | grep -v sha256 \
-        | grep -E "$ARCH_PAT" \
-        | head -1 \
-        | cut -d'"' -f4)
-    if [ -z "$NVIM_URL" ]; then
-        echo "ERROR: Could not find Neovim release for $(uname -m)." >&2
-        rm -rf "$NVIM_TMP"
-        exit 1
-    fi
-    TARBALL="$(basename "$NVIM_URL")"
-    EXTRACT_DIR="${TARBALL%.tar.gz}"
-    curl -fsSL "$NVIM_URL" -o "$NVIM_TMP/$TARBALL"
-    tar xf "$NVIM_TMP/$TARBALL" -C "$NVIM_TMP"
-    mkdir -p ~/.local
-    rm -rf ~/.local/nvim
-    mv "$NVIM_TMP/$EXTRACT_DIR" ~/.local/nvim
-    mkdir -p ~/.local/bin
-    ln -sf ~/.local/nvim/bin/nvim ~/.local/bin/nvim
-    rm -rf "$NVIM_TMP"
-    echo "Neovim installed to ~/.local/nvim"
+    sudo apt-get install -y software-properties-common
+    sudo add-apt-repository ppa:neovim-ppa/unstable -y
+    sudo apt-get update -qq
+    sudo apt-get install -y neovim
+    echo "Neovim installed: $(nvim --version | head -1)"
 else
     echo "Neovim already installed: $(nvim --version | head -1)"
 fi
