@@ -33,3 +33,9 @@ VS Code over remote-SSH drops session context on SSH disconnection, adds latency
 - Building Neovim config from scratch (LazyVim is the base)
 - Inline AI completion plugins
 - Windows-side tooling changes beyond WezTerm config
+
+## Process
+
+This repo is governed by the roadmap process. Fetch it only when you need to perform a workflow action (issue state transition, grill session, wontfix):
+
+`gh api repos/kravetsd/agentic-engineering-roadmap-pocock/contents/CLAUDE.md --jq '.content' | base64 -d`
