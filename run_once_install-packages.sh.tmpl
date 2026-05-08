@@ -1,7 +1,7 @@
+{{- if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 # Runs once per machine (re-runs if this file changes).
 # Installs all required system packages for the terminal dev environment.
-[ "$(uname -s)" = "Linux" ] || exit 0
 set -e
 
 # --- apt packages ---
@@ -70,3 +70,4 @@ if ! command -v nvim &>/dev/null; then
 else
     echo "Neovim already installed: $(nvim --version | head -1)"
 fi
+{{- end -}}
