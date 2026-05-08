@@ -50,7 +50,7 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 
 ## Phase 7 — Verification (manual)
 
-- [ ] OSC 52: copy from remote Neovim → paste into local Windows browser
+- [x] OSC 52: copy from remote Neovim → paste into local Windows browser
 - [ ] OSC 52: copy from local Windows clipboard → paste into remote Neovim
 - [ ] All 8 LSPs show diagnostics on a file of the relevant type
 - [ ] WezTerm renders Nerd Font glyphs without tofu characters
