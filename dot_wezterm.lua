@@ -18,4 +18,7 @@ config.use_fancy_tab_bar = false
 -- OSC 52 clipboard passthrough is enabled by default in WezTerm.
 -- No extra config needed — copy in remote Neovim lands in the local Windows clipboard.
 
+-- Default shell: Git Bash
+config.default_prog = { 'C:\\Program Files\\Git\\bin\\bash.exe', '--login', '-i' }
+
 return config
