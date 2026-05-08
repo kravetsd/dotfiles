@@ -11,10 +11,10 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 
 ## Phase 2 — chezmoi bootstrap
 
-- [ ] Install chezmoi on local machine
-- [ ] Run `chezmoi init` pointing to this repo
-- [ ] Install chezmoi on each remote machine
-- [ ] Verify `chezmoi apply` produces identical config on a fresh remote
+- [x] Install chezmoi on local machine
+- [x] Run `chezmoi init` pointing to this repo
+- [x] Install chezmoi on each remote machine
+- [x] Verify `chezmoi apply` produces identical config on a fresh remote
 
 ## Phase 3 — Remote: tmux
 
