@@ -4,10 +4,10 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 
 ## Phase 1 — Local Windows (WezTerm)
 
-- [ ] Install WezTerm on Windows
-- [ ] Install a Nerd Font (e.g. JetBrainsMono Nerd Font) and set it in WezTerm
-- [ ] Enable OSC 52 clipboard passthrough in WezTerm Lua config
-- [ ] Add WezTerm config to this repo via chezmoi
+- [x] Install WezTerm on Windows
+- [x] Install a Nerd Font (e.g. JetBrainsMono Nerd Font) and set it in WezTerm
+- [x] Enable OSC 52 clipboard passthrough in WezTerm Lua config
+- [x] Add WezTerm config to this repo via chezmoi
 
 ## Phase 2 — chezmoi bootstrap
 
