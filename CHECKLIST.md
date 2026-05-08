@@ -25,10 +25,10 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 
 ## Phase 4 — Remote: Neovim + LazyVim
 
-- [ ] Run `vimtutor` (do this before any Neovim config work)
-- [ ] Install Neovim on all remote machines
-- [ ] Install LazyVim
-- [ ] Add LazyVim config to this repo via chezmoi
+- [x] Run `vimtutor` (do this before any Neovim config work)
+- [ ] Install Neovim on all remote machines (`chezmoi apply` now handles this via `run_once_install-packages.sh`)
+- [ ] Install LazyVim (first `nvim` launch auto-installs all plugins — run `nvim` and wait)
+- [x] Add LazyVim config to this repo via chezmoi (`dot_config/nvim/`)
 
 ## Phase 5 — LSPs via mason.nvim
 

@@ -1,0 +1,2 @@
+-- Autocmds are automatically loaded on VeryLazy event
+-- Add custom autocmds here
