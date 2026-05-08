@@ -18,10 +18,10 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 
 ## Phase 3 — Remote: tmux
 
-- [ ] Install tmux on all remote machines
-- [ ] Write tmux config (named sessions, sane prefix, status bar)
-- [ ] Add tmux config to this repo via chezmoi
-- [ ] Verify session survives SSH disconnect and reattach on all 3 machines
+- [x] Install tmux on all remote machines
+- [x] Write tmux config (named sessions, sane prefix, status bar)
+- [x] Add tmux config to this repo via chezmoi
+- [x] Verify session survives SSH disconnect and reattach on all 3 machines
 
 ## Phase 4 — Remote: Neovim + LazyVim
 
