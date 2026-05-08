@@ -30,15 +30,23 @@ fi
 # --- Neovim (latest stable from GitHub releases; apt version is too old for LazyVim) ---
 if ! command -v nvim &>/dev/null; then
     echo "Installing Neovim..."
+    case "$(uname -m)" in
+        x86_64)        ARCH_PAT="nvim-(linux64|linux-x86_64)\.tar\.gz" ;;
+        aarch64|arm64) ARCH_PAT="nvim-linux-arm64\.tar\.gz" ;;
+        *)
+            echo "ERROR: Unsupported architecture: $(uname -m)" >&2
+            exit 1
+            ;;
+    esac
     NVIM_TMP=$(mktemp -d)
     NVIM_URL=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest \
         | grep '"browser_download_url"' \
-        | grep 'nvim-linux.*\.tar\.gz"' \
         | grep -v sha256 \
+        | grep -E "$ARCH_PAT" \
         | head -1 \
         | cut -d'"' -f4)
     if [ -z "$NVIM_URL" ]; then
-        echo "ERROR: Could not determine Neovim download URL." >&2
+        echo "ERROR: Could not find Neovim release for $(uname -m)." >&2
         rm -rf "$NVIM_TMP"
         exit 1
     fi
