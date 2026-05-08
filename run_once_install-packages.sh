@@ -1,6 +1,7 @@
 #!/bin/bash
 # Runs once per machine (re-runs if this file changes).
 # Installs all required system packages for the terminal dev environment.
+[ "$(uname -s)" = "Linux" ] || exit 0
 set -e
 
 # --- apt packages ---
