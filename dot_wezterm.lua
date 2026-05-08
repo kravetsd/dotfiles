@@ -11,8 +11,8 @@ config.color_scheme = 'Tokyo Night'
 -- Window padding
 config.window_padding = { left = 4, right = 4, top = 4, bottom = 4 }
 
--- tmux owns all multiplexing; hide WezTerm's tab bar
-config.hide_tab_bar_if_only_one_tab = true
+-- One tab per remote VM; tab bar always visible
+config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 
 -- OSC 52 clipboard passthrough is enabled by default in WezTerm.
