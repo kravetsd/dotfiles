@@ -36,6 +36,28 @@ else
     echo "Node.js already installed: $(node --version)"
 fi
 
+# --- lazygit (latest stable from GitHub releases) ---
+if ! command -v lazygit &>/dev/null; then
+    echo "Installing lazygit..."
+    LG_VERSION=$(curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest \
+        | grep '"tag_name"' | cut -d'"' -f4 | sed 's/^v//')
+    case "$(uname -m)" in
+        x86_64)        LG_ARCH="x86_64" ;;
+        aarch64|arm64) LG_ARCH="arm64" ;;
+        *) echo "ERROR: Unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+    esac
+    LG_TMP=$(mktemp -d)
+    curl -fsSL "https://github.com/jesseduffield/lazygit/releases/download/v${LG_VERSION}/lazygit_${LG_VERSION}_Linux_${LG_ARCH}.tar.gz" \
+        -o "$LG_TMP/lazygit.tar.gz"
+    tar xf "$LG_TMP/lazygit.tar.gz" -C "$LG_TMP"
+    mkdir -p ~/.local/bin
+    mv "$LG_TMP/lazygit" ~/.local/bin/lazygit
+    rm -rf "$LG_TMP"
+    echo "lazygit installed to ~/.local/bin/lazygit"
+else
+    echo "lazygit already installed: $(lazygit --version | head -1)"
+fi
+
 # --- Neovim (latest stable from GitHub releases; apt version is too old for LazyVim) ---
 if ! command -v nvim &>/dev/null; then
     echo "Installing Neovim..."

@@ -44,8 +44,8 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 
 ## Phase 6 — lazygit
 
-- [ ] Install lazygit on all remote machines
-- [ ] Confirm lazygit.nvim float integration (ships with LazyVim)
+- [ ] Install lazygit on all remote machines (`chezmoi apply` now handles this via `run_once_install-packages.sh`)
+- [x] Confirm lazygit.nvim float integration (ships with LazyVim — no extra config needed)
 - [ ] Verify lazygit opens from Neovim keybinding and shows branch history
 
 ## Phase 7 — Verification (manual)
