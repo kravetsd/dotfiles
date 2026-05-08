@@ -26,21 +26,21 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 ## Phase 4 — Remote: Neovim + LazyVim
 
 - [x] Run `vimtutor` (do this before any Neovim config work)
-- [ ] Install Neovim on all remote machines (`chezmoi apply` now handles this via `run_once_install-packages.sh`)
-- [ ] Install LazyVim (first `nvim` launch auto-installs all plugins — run `nvim` and wait)
+- [x] Install Neovim on all remote machines (`chezmoi apply` now handles this via `run_once_install-packages.sh`)
+- [x] Install LazyVim (first `nvim` launch auto-installs all plugins — run `nvim` and wait)
 - [x] Add LazyVim config to this repo via chezmoi (`dot_config/nvim/`)
 
 ## Phase 5 — LSPs via mason.nvim
 
-- [ ] pyright (Python) — via `lazyvim.plugins.extras.lang.python`
-- [ ] ruff (Python linting) — via `lazyvim.plugins.extras.lang.python`
-- [ ] yaml-language-server (YAML) — via `lazyvim.plugins.extras.lang.yaml`
-- [ ] bash-language-server (Bash) — manual mason config in `lang.lua`
-- [ ] terraform-ls (Terraform) — via `lazyvim.plugins.extras.lang.terraform`
-- [ ] dockerfile-language-server (Dockerfile) — via `lazyvim.plugins.extras.lang.docker`
-- [ ] gopls (Go) — via `lazyvim.plugins.extras.lang.go`
-- [ ] jsonls (JSON) — via `lazyvim.plugins.extras.lang.json`
-- [ ] marksman (Markdown) — via `lazyvim.plugins.extras.lang.markdown`
+- [x] pyright (Python) — via `lazyvim.plugins.extras.lang.python`
+- [x] ruff (Python linting) — via `lazyvim.plugins.extras.lang.python`
+- [x] yaml-language-server (YAML) — via `lazyvim.plugins.extras.lang.yaml`
+- [x] bash-language-server (Bash) — manual mason config in `lang.lua`
+- [x] terraform-ls (Terraform) — via `lazyvim.plugins.extras.lang.terraform`
+- [x] dockerfile-language-server (Dockerfile) — via `lazyvim.plugins.extras.lang.docker`
+- [x] gopls (Go) — via `lazyvim.plugins.extras.lang.go`
+- [x] jsonls (JSON) — via `lazyvim.plugins.extras.lang.json`
+- [x] marksman (Markdown) — via `lazyvim.plugins.extras.lang.markdown`
 
 ## Phase 6 — lazygit
 
@@ -51,7 +51,7 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 ## Phase 7 — Verification (manual)
 
 - [x] OSC 52: copy from remote Neovim → paste into local Windows browser
-- [ ] OSC 52: copy from local Windows clipboard → paste into remote Neovim
-- [ ] All 8 LSPs show diagnostics on a file of the relevant type
-- [ ] WezTerm renders Nerd Font glyphs without tofu characters
+- [x] OSC 52: copy from local Windows clipboard → paste into remote Neovim (via Ctrl+V in WezTerm)
+- [x] All 8 LSPs show diagnostics on a file of the relevant type
+- [x] WezTerm renders Nerd Font glyphs without tofu characters
 - [ ] `chezmoi apply` on a fresh remote produces identical config
