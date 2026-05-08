@@ -34,6 +34,16 @@ VS Code over remote-SSH drops session context on SSH disconnection, adds latency
 - Inline AI completion plugins
 - Windows-side tooling changes beyond WezTerm config
 
+## Getting oriented
+
+When starting a new session, run:
+
+```bash
+gh issue view 5 --repo kravetsd/agentic-engineering-roadmap-pocock --json title,body,state,labels
+```
+
+Report the issue's current label and what it means, then summarise what's implemented in this repo vs. what's next.
+
 ## Process
 
 This repo is governed by the roadmap process. Fetch it only when you need to perform a workflow action (issue state transition, grill session, wontfix):
