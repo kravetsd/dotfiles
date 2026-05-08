@@ -2,6 +2,7 @@
 CHECKLIST.md
 CLAUDE.md
 windows/
+linux/
 
 # WezTerm config is Windows-only
 {{ if ne .chezmoi.os "windows" }}
