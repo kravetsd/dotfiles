@@ -27,6 +27,15 @@ if command -v fdfind &>/dev/null && ! command -v fd &>/dev/null; then
     ln -sf "$(command -v fdfind)" ~/.local/bin/fd
 fi
 
+# --- Node.js LTS (needed by mason.nvim for: pyright, yaml-ls, bash-ls, dockerfile-ls, jsonls) ---
+if ! command -v node &>/dev/null; then
+    echo "Installing Node.js LTS..."
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+else
+    echo "Node.js already installed: $(node --version)"
+fi
+
 # --- Neovim (latest stable from GitHub releases; apt version is too old for LazyVim) ---
 if ! command -v nvim &>/dev/null; then
     echo "Installing Neovim..."

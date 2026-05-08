@@ -32,15 +32,15 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 
 ## Phase 5 — LSPs via mason.nvim
 
-- [ ] pyright (Python)
-- [ ] ruff (Python linting)
-- [ ] yaml-language-server (YAML)
-- [ ] bash-language-server (Bash)
-- [ ] terraform-ls (Terraform)
-- [ ] dockerfile-language-server (Dockerfile)
-- [ ] gopls (Go)
-- [ ] jsonls (JSON)
-- [ ] marksman (Markdown)
+- [ ] pyright (Python) — via `lazyvim.plugins.extras.lang.python`
+- [ ] ruff (Python linting) — via `lazyvim.plugins.extras.lang.python`
+- [ ] yaml-language-server (YAML) — via `lazyvim.plugins.extras.lang.yaml`
+- [ ] bash-language-server (Bash) — manual mason config in `lang.lua`
+- [ ] terraform-ls (Terraform) — via `lazyvim.plugins.extras.lang.terraform`
+- [ ] dockerfile-language-server (Dockerfile) — via `lazyvim.plugins.extras.lang.docker`
+- [ ] gopls (Go) — via `lazyvim.plugins.extras.lang.go`
+- [ ] jsonls (JSON) — via `lazyvim.plugins.extras.lang.json`
+- [ ] marksman (Markdown) — via `lazyvim.plugins.extras.lang.markdown`
 
 ## Phase 6 — lazygit
 
