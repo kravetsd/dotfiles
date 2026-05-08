@@ -18,18 +18,25 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 Restart WezTerm after the script completes.
 
-## 3. Apply WezTerm config
+## 3. Install chezmoi and apply dotfiles
 
-Once chezmoi is set up (Phase 2 of the checklist), run:
+Install chezmoi via winget (run in Git Bash or PowerShell):
 
 ```powershell
-chezmoi apply
+winget install twpayne.chezmoi
 ```
 
-This copies `dot_wezterm.lua` from the repo to `~/.wezterm.lua`, which WezTerm loads automatically on startup.
+Then initialise chezmoi from this repo and apply in one step:
 
-Until chezmoi is configured, you can apply it manually:
+```bash
+chezmoi init --apply https://github.com/kravetsd/dotfiles.git
+```
 
-```powershell
-Copy-Item dot_wezterm.lua "$env:USERPROFILE\.wezterm.lua"
+This clones the repo into `~/.local/share/chezmoi` and copies `dot_wezterm.lua` to `~/.wezterm.lua`.
+Restart WezTerm — it will pick up the config automatically.
+
+For future config changes, pull and reapply with:
+
+```bash
+chezmoi update
 ```

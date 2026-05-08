@@ -1,0 +1,9 @@
+# Repo meta files — not dotfiles
+CHECKLIST.md
+CLAUDE.md
+windows/
+
+# WezTerm config is Windows-only
+{{ if ne .chezmoi.os "windows" }}
+dot_wezterm.lua
+{{ end }}
