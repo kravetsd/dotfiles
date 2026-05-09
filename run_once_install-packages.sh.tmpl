@@ -5,7 +5,7 @@
 set -e
 
 # --- apt packages ---
-packages=(tmux git make unzip ripgrep fd-find)
+packages=(tmux git make unzip ripgrep fd-find fzf)
 to_install=()
 
 for pkg in "${packages[@]}"; do
@@ -77,6 +77,29 @@ if ! command -v go &>/dev/null; then
 else
     echo "Go already installed: $(go version)"
 fi
+# --- tree-sitter CLI (needed by nvim-treesitter to compile custom grammars) ---
+if ! command -v tree-sitter &>/dev/null; then
+    echo "Installing tree-sitter CLI..."
+    TS_VERSION=$(curl -fsSL "https://api.github.com/repos/tree-sitter/tree-sitter/releases/latest" \
+        | grep '"tag_name"' | cut -d'"' -f4 | sed 's/^v//')
+    case "$(uname -m)" in
+        x86_64)        TS_ARCH="x64" ;;
+        aarch64|arm64) TS_ARCH="arm64" ;;
+        *) echo "ERROR: Unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+    esac
+    TS_TMP=$(mktemp -d)
+    curl -fsSL "https://github.com/tree-sitter/tree-sitter/releases/download/v${TS_VERSION}/tree-sitter-linux-${TS_ARCH}.gz" \
+        -o "$TS_TMP/tree-sitter.gz"
+    gunzip "$TS_TMP/tree-sitter.gz"
+    chmod +x "$TS_TMP/tree-sitter"
+    mkdir -p ~/.local/bin
+    mv "$TS_TMP/tree-sitter" ~/.local/bin/tree-sitter
+    rm -rf "$TS_TMP"
+    echo "tree-sitter installed: $(~/.local/bin/tree-sitter --version)"
+else
+    echo "tree-sitter already installed: $(tree-sitter --version)"
+fi
+
 # Ensure /usr/local/go/bin is in PATH for all login shells
 if [ ! -f /etc/profile.d/go.sh ]; then
     echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/go.sh > /dev/null
