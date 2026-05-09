@@ -54,4 +54,4 @@ Tracks progress on [issue #5](https://github.com/kravetsd/agentic-engineering-ro
 - [x] OSC 52: copy from local Windows clipboard → paste into remote Neovim (via Ctrl+V in WezTerm)
 - [x] All 8 LSPs show diagnostics on a file of the relevant type
 - [x] WezTerm renders Nerd Font glyphs without tofu characters
-- [ ] `chezmoi apply` on a fresh remote produces identical config
+- [x] `chezmoi apply` on a fresh remote produces identical config — verified manually on a fresh VM; Docker-based automated test tracked in [#2](https://github.com/kravetsd/dotfiles/issues/2)
