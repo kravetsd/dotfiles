@@ -62,7 +62,7 @@ fi
 # --- Go (official binary — needed by mason.nvim for gopls) ---
 if ! command -v go &>/dev/null; then
     echo "Installing Go..."
-    GO_VERSION=$(curl -fsSL https://go.dev/dl/?mode=json | grep -o '"version":"go[^"]*"' | head -1 | cut -d'"' -f4)
+    GO_VERSION=$(curl -fsSL "https://go.dev/VERSION?m=text" | head -1)
     case "$(uname -m)" in
         x86_64)        GO_ARCH="amd64" ;;
         aarch64|arm64) GO_ARCH="arm64" ;;
