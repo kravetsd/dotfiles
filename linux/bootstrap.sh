@@ -9,10 +9,10 @@ DOTFILES_REPO="https://github.com/kravetsd/dotfiles.git"
 # Install chezmoi if not present
 if ! command -v chezmoi &>/dev/null; then
     echo "Installing chezmoi..."
-    sh -c "$(curl -fsLS get.chezmoi.io)"
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
 fi
 
-# chezmoi installs to ~/bin — add to PATH for this session
+# chezmoi installs to ~/.local/bin — add to PATH for this session
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Persist PATH in .zshrc if not already there
