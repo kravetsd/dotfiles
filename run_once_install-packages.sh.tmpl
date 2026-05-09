@@ -59,6 +59,29 @@ else
     echo "lazygit already installed: $(lazygit --version | head -1)"
 fi
 
+# --- Go (official binary — needed by mason.nvim for gopls) ---
+if ! command -v go &>/dev/null; then
+    echo "Installing Go..."
+    GO_VERSION=$(curl -fsSL https://go.dev/dl/?mode=json | grep -o '"version":"go[^"]*"' | head -1 | cut -d'"' -f4)
+    case "$(uname -m)" in
+        x86_64)        GO_ARCH="amd64" ;;
+        aarch64|arm64) GO_ARCH="arm64" ;;
+        *) echo "ERROR: Unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+    esac
+    GO_TMP=$(mktemp -d)
+    curl -fsSL "https://dl.google.com/go/${GO_VERSION}.linux-${GO_ARCH}.tar.gz" -o "$GO_TMP/go.tar.gz"
+    sudo rm -rf /usr/local/go
+    sudo tar -C /usr/local -xzf "$GO_TMP/go.tar.gz"
+    rm -rf "$GO_TMP"
+    echo "Go installed: $(/usr/local/go/bin/go version)"
+else
+    echo "Go already installed: $(go version)"
+fi
+# Ensure /usr/local/go/bin is in PATH for all login shells
+if [ ! -f /etc/profile.d/go.sh ]; then
+    echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/go.sh > /dev/null
+fi
+
 # --- Neovim (unstable PPA — works on x86_64 and arm64, apt default is too old for LazyVim) ---
 if ! command -v nvim &>/dev/null; then
     echo "Installing Neovim..."
