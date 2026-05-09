@@ -50,6 +50,22 @@ This repo is governed by the roadmap process. Fetch it only when you need to per
 
 `gh api repos/kravetsd/agentic-engineering-roadmap-pocock/contents/CLAUDE.md --jq '.content' | base64 -d`
 
+### Reporting progress
+
+After each phase in CHECKLIST.md is fully complete, append a comment to the linked roadmap issue:
+
+```bash
+gh issue comment 5 --repo kravetsd/agentic-engineering-roadmap-pocock --body "$(cat <<'COMMENT'
+## Phase N — <phase name> complete
+
+- [x] item one
+- [x] item two
+COMMENT
+)"
+```
+
+Post the completed phase's checklist items only — do not post a full snapshot of all phases.
+
 ## Agent skills
 
 ### Issue tracker
