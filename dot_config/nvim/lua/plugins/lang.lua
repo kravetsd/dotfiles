@@ -8,6 +8,13 @@ return {
   { import = "lazyvim.plugins.extras.lang.json" },      -- jsonls
   { import = "lazyvim.plugins.extras.lang.markdown" },  -- marksman
 
+  -- helm filetype detection (sets ft=helm for yaml/tpl files inside chart dirs)
+  -- must load early so the filetype autocmd fires before yaml is assigned
+  {
+    "towolf/vim-helm",
+    lazy = false,
+  },
+
   -- bash-language-server (no LazyVim extra available)
   {
     "neovim/nvim-lspconfig",
