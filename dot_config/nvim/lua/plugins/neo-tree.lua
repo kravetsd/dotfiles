@@ -7,6 +7,7 @@ return {
         hide_dotfiles = false,
         hide_gitignored = false,
       },
+      use_libuv_file_watcher = true,
     },
   },
 }
