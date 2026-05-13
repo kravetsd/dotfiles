@@ -1,8 +1,12 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
--- Font — requires JetBrainsMono Nerd Font installed on Windows
-config.font = wezterm.font('JetBrainsMono Nerd Font')
+-- Font — requires JetBrainsMono Nerd Font installed on Windows.
+-- assume_emoji_presentation=false prevents Noto Color Emoji (built-in fallback)
+-- from intercepting Nerd Font PUA codepoints and rendering them as orange boxes.
+config.font = wezterm.font_with_fallback({
+  { family = 'JetBrainsMono Nerd Font', assume_emoji_presentation = false },
+})
 config.font_size = 12.0
 
 -- Color scheme
