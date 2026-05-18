@@ -1,7 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  opts = {
-    filesystem = {
+  opts = function(_, opts)
+    opts.filesystem = vim.tbl_deep_extend("force", opts.filesystem or {}, {
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
@@ -12,6 +12,6 @@ return {
         enabled = true,
         leave_dirs_open = true,
       },
-    },
-  },
+    })
+  end,
 }
